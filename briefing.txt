@@ -1,0 +1,14 @@
+Descrição: Desenvolvo uma plataforma de música digital e estou lutando contra a complexidade dos usuários e conteúdos. 
+a. Tenho diferentes tipos de assinantes: gratuitos, premium e família, cada um com limitações e benefícios específicos. 
+b. Os artistas também são variados: independentes, de gravadoras e podcasters, cada categoria com formas diferentes de monetização. 
+c. Meu catálogo inclui músicas, podcasts, audiolivros e sons ambientes, todos exigindo metadados específicos. 
+d. Recebo semanalmente arquivos CSV com novos lançamentos das gravadoras e preciso atualizar o banco de dados automaticamente. 
+e. Dados como histórico de reprodução dos usuários e informações de pagamento dos artistas devem ser mantidos privados.
+
+* Deverão me mostrar o problema e como pensaram em resolver;
+* Deverão me mostrar onde aplicaram os conceitos da orientação a objetos e por que;
+* Mostrar a solução funcionando.
+* Deverá ter tratamento de erros;
+* Deverá está organizado em módulos;
+* Todos os atributos devem ser privados!!
+* Precisa de herança
