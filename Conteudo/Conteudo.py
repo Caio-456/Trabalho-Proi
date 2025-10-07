@@ -6,3 +6,4 @@ class Conteudo():
         self.__Artista = Artista
         self.__duracao = duracao
         self.__data = data
+        

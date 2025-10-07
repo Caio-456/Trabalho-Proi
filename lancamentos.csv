@@ -1,0 +1,46 @@
+content_type;title;artist_id;release_date;duration_sec;isrc_or_id;album;explicit;genre;rights_owner
+podcast;Título 1;artist_11;2020-07-29;2957;ID918011;;no;Ambiente;Gravadora B
+podcast;Título 2;artist_14;2020-11-28;6612;ID950155;;yes;Podcast;Gravadora A
+podcast;Título 3;artist_12;2021-11-11;6469;ID531712;;yes;Clássico;Gravadora B
+musica;Título 4;artist_7;2024-11-21;377;ID593554;Álbum 8;yes;Autoajuda;Gravadora C
+audiolivro;Título 5;artist_14;2024-06-16;7197;ID338651;;yes;Rock;Gravadora B
+som_ambiente;Título 6;artist_6;2021-07-24;7140;ID172792;;no;Eletrônico;Podcast Network
+som_ambiente;Título 7;artist_11;2024-09-23;4452;ID447235;;yes;Pop;Gravadora C
+podcast;Título 8;artist_10;2021-06-27;373;ID213668;;no;Eletrônico;Gravadora C
+som_ambiente;Título 9;artist_10;2022-11-13;1007;ID503906;;yes;Clássico;Gravadora A
+som_ambiente;Título 10;artist_1;2022-11-30;6666;ID664607;;yes;Eletrônico;Independente
+musica;Título 11;artist_11;2021-11-07;5164;ID429164;Álbum 4;no;Ficção;Gravadora C
+som_ambiente;Título 12;artist_6;2022-04-04;5771;ID410016;;yes;Jazz;Independente
+som_ambiente;Título 13;artist_11;2024-03-12;1485;ID745414;;no;Podcast;Podcast Network
+musica;Título 14;artist_5;2021-08-10;1781;ID550770;Álbum 19;no;Autoajuda;Independente
+som_ambiente;Título 15;artist_11;2021-03-13;4247;ID596171;;yes;Pop;Gravadora C
+audiolivro;Título 16;artist_2;2024-08-03;6213;ID346277;;no;Jazz;Gravadora B
+podcast;Título 17;artist_1;2020-04-04;2065;ID598216;;yes;Autoajuda;Independente
+podcast;Título 18;artist_12;2023-11-27;3205;ID618392;;no;Jazz;Gravadora B
+musica;Título 19;artist_15;2024-03-17;7108;ID907451;Álbum 4;no;Jazz;Gravadora B
+som_ambiente;Título 20;artist_1;2023-02-15;2101;ID989545;;yes;Autoajuda;Gravadora B
+som_ambiente;Título 21;artist_11;2022-12-23;4638;ID724377;;no;Autoajuda;Podcast Network
+som_ambiente;Título 22;artist_14;2023-01-27;3712;ID266889;;no;Autoajuda;Gravadora C
+podcast;Título 23;artist_14;2023-07-29;2331;ID903013;;no;Jazz;Gravadora C
+som_ambiente;Título 24;artist_2;2024-01-01;2400;ID345884;;no;Eletrônico;Gravadora C
+musica;Título 25;artist_3;2020-11-04;1954;ID501641;Álbum 5;yes;Pop;Independente
+som_ambiente;Título 26;artist_6;2023-01-16;3876;ID535970;;yes;Jazz;Independente
+som_ambiente;Título 27;artist_15;2024-04-25;4844;ID829308;;yes;Ambiente;Independente
+som_ambiente;Título 28;artist_1;2021-12-21;2506;ID890075;;no;Podcast;Podcast Network
+podcast;Título 29;artist_8;2021-03-25;2295;ID557007;;no;Rock;Independente
+audiolivro;Título 30;artist_11;2023-10-22;6598;ID523956;;yes;Autoajuda;Gravadora B
+musica;Título 31;artist_15;2022-03-17;4908;ID691807;Álbum 1;yes;Podcast;Gravadora B
+som_ambiente;Título 32;artist_3;2020-04-12;2191;ID497519;;no;Jazz;Independente
+audiolivro;Título 33;artist_6;2024-04-07;3165;ID391773;;no;Clássico;Gravadora A
+som_ambiente;Título 34;artist_1;2024-03-14;4478;ID154615;;no;Jazz;Gravadora A
+musica;Título 35;artist_13;2020-03-04;2085;ID309044;Álbum 1;yes;Jazz;Gravadora B
+som_ambiente;Título 36;artist_11;2020-08-22;4680;ID328552;;no;Clássico;Gravadora C
+podcast;Título 37;artist_10;2023-05-28;6187;ID853252;;yes;Sertanejo;Gravadora C
+musica;Título 38;artist_10;2020-02-22;2615;ID703766;Álbum 13;no;Jazz;Gravadora A
+podcast;Título 39;artist_2;2023-11-28;6388;ID416232;;yes;Ambiente;Gravadora A
+audiolivro;Título 40;artist_9;2022-05-27;5479;ID488571;;yes;Ficção;Gravadora C
+musica;Título 41;artist_14;2022-05-10;6796;ID614013;Álbum 4;no;Eletrônico;Independente
+podcast;Título 42;artist_7;2020-12-26;6071;ID647091;;no;Ambiente;Podcast Network
+som_ambiente;Título 43;artist_8;2022-06-11;6824;ID866536;;no;Eletrônico;Gravadora B
+musica;Título 44;artist_5;2022-07-12;2057;ID886931;Álbum 15;no;Eletrônico;Gravadora A
+som_ambiente;Título 45;artist_14;2021-10-27;1549;ID611233;;yes;Eletrônico;Gravadora C
