@@ -1,8 +1,7 @@
-from Artista import Artista
-
 class Conteudo():
-    def __init__(self, titulo, Artista, duracao, data):
+    def __init__(self, titulo, criador, data, genero, duracao):
         self.__titulo = titulo
-        self.__Artista = Artista
-        self.__duracao = duracao
+        self.__criador = criador
         self.__data = data
+        self.__genero = genero
+        self.__duracao = duracao

@@ -1,7 +1,9 @@
 import Conteudo
 
 class Podcast(Conteudo):
-    def __init__ (self, iscrPodcast, generoPodcast, titulo, duracao, data, Artista):
-        super().__init__(self, titulo, duracao, data, Artista)
-        self.__iscrPodcast = iscrPodcast
-        self.__generoPodcast = generoPodcast
+    def __init__ (self, titulo, criador, data, genero, duracao, temporada, episodio, RSS, capitulos):
+        super().__init__(self, titulo, criador, data, genero, duracao)
+        self.__temporada = temporada
+        self.__episodio = episodio
+        self.__RSS = RSS
+        self.__capitulos = capitulos
