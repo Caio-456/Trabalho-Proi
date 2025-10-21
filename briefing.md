@@ -36,18 +36,13 @@ o usuário pode ver o próprio histórico e estatísticas agregadas. Informaçõ
 em exports gerais. Senhas são guardadas com hash e qualquer dado sensível deve ser exposto apenas por métodos controlados.
 
 
-Versão só com o que não está pronto:
+# Versão só com o que não está pronto:
 
-Descrição: Desenvolvo uma plataforma de música digital e estou lutando contra a complexidade dos usuários e conteúdos. 
 a. Tenho diferentes tipos de assinantes: gratuitos, premium e família, cada um com limitações e benefícios específicos. 
 b. Os artistas também são variados: independentes, de gravadoras e podcasters, cada categoria com formas diferentes de monetização. 
-c. Meu catálogo inclui músicas, podcasts, audiolivros e sons ambientes, todos exigindo metadados específicos. 
 d. Recebo semanalmente arquivos CSV com novos lançamentos das gravadoras e preciso atualizar o banco de dados automaticamente. 
 e. Dados como histórico de reprodução dos usuários e informações de pagamento dos artistas devem ser mantidos privados.
 
-* Deverão me mostrar o problema e como pensaram em resolver;
-* Deverão me mostrar onde aplicaram os conceitos da orientação a objetos e por que;
-* Mostrar a solução funcionando.
 * Deverá ter tratamento de erros;
 * Deverá está organizado em módulos;
 * Todos os atributos devem ser privados!!
@@ -65,7 +60,7 @@ Sempre que um usuário tenta executar uma ação (pular faixa, baixar, trocar qu
 
 Do lado dos criadores, também tenho perfis diferentes. 
 
-Existem artistas independentes, que enviam seus lançamentos diretamente e recebem pagamento por stream elegível; artistas de gravadoras, cujos catálogos chegam por ingestão de
+artistas de gravadoras, cujos catálogos chegam por ingestão de
 metadados e seguem regras contratuais de repasse; e podcasters, que podem monetizar por publicidade e patrocínio vinculados aos episódios. Em relatórios internos quero ver o 
 desempenho por criador (streams válidos, ouvintes únicos, retenção por faixa/episódio), mas os detalhes financeiros só podem ser acessados por perfis autorizados.
 O sistema deve recusar cadastros que não tragam os campos obrigatórios do seu tipo (por exemplo, música sem ISRC).
