@@ -9,7 +9,3 @@ class Premium(Assinante):
         self.__faixa_anuncios = faixa_anuncios
         self.__alta_qualidade = alta_qualidade
         self.__ouvir_offline = ouvir_offline
-        
-
-    def baixar_musica(self, musica):
-        print(f'A música {musica.titulo} foi baixada')

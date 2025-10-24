@@ -2,8 +2,8 @@ import Artista
 from Models.Conteudo import Musica
 
 class Independente(Artista):
-    def __init__(self, nome, streamsMensais = 0, salario = 0):
-        super().__init__(self, nome)
+    def __init__(self, nome, saldo, streamsMensais = 0, salario = 0):
+        super().__init__(self, nome, saldo)
         self.__streamsMensais = streamsMensais
         self.__salario = salario
 

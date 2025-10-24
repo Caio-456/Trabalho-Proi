@@ -38,7 +38,6 @@ em exports gerais. Senhas são guardadas com hash e qualquer dado sensível deve
 
 # Versão só com o que não está pronto:
 
-a. Tenho diferentes tipos de assinantes: gratuitos, premium e família, cada um com limitações e benefícios específicos. 
 b. Os artistas também são variados: independentes, de gravadoras e podcasters, cada categoria com formas diferentes de monetização. 
 d. Recebo semanalmente arquivos CSV com novos lançamentos das gravadoras e preciso atualizar o banco de dados automaticamente. 
 e. Dados como histórico de reprodução dos usuários e informações de pagamento dos artistas devem ser mantidos privados.
@@ -48,17 +47,6 @@ e. Dados como histórico de reprodução dos usuários e informações de pagame
 * Todos os atributos devem ser privados!!
 * Precisa de herança
 
-# Plataforma de Streaming de Música
-
-“Desenvolvo uma plataforma de música digital e estou lutando com a complexidade dos usuários e dos conteúdos.
-
-Tenho três tipos de assinantes e cada um precisa ser tratado de forma diferente. O assinante gratuito pode ouvir faixas com anúncios, tem limite de pulos,
-qualidade de áudio reduzida e não pode baixar para ouvir offline. O assinante premium escuta sem anúncios, com qualidade alta e download offline liberado. O plano família 
-precisa permitir múltiplos perfis sob a mesma conta, controle parental para menores e os mesmos benefícios do premium em cada perfil. 
-
-Sempre que um usuário tenta executar uma ação (pular faixa, baixar, trocar qualidade), o sistema deve verificar as permissões do seu plano e registrar o que aconteceu.
-
-Do lado dos criadores, também tenho perfis diferentes. 
 
 artistas de gravadoras, cujos catálogos chegam por ingestão de
 metadados e seguem regras contratuais de repasse; e podcasters, que podem monetizar por publicidade e patrocínio vinculados aos episódios. Em relatórios internos quero ver o 

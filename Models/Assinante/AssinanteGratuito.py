@@ -16,6 +16,11 @@ class Gratuito(Assinante):
         if limite_pulos <= 8:
             print("Pulando música...")
             limite_pulos -= 1
-            
         else:
-            print("Pulos esgotados")
+            print("Pulos esgotados.")
+
+    def baixar_musica(self):
+        print('Indisponível no plano gratuito.')
+
+    def trocar_qualidade(self):
+        print('Indisponível no plano gratuito.')
