@@ -1,12 +1,6 @@
 # Integrantes: Alice Matos Ferreira, Caio Motta Barcelos, Davi Quinelato Falçoni e Eduarda Aleixo Felizardo.
 
 # Imports:
-from Models.Conteudo.Conteudo import Conteudo
-from Models.Conteudo.Musica import Musica
-from Models.Conteudo.Podcast import Podcast
-from Models.Conteudo.AudioLivro import AudioLivro
-from Models.Conteudo.SomAmbiente import SomAmbiente
-
 from Models.Assinante.Assinante import Assinante
 from Models.Assinante.AssinanteFamilia import AssinanteFamilia
 from Models.Assinante.AssinanteGratuito import AssinanteGratuito
@@ -21,8 +15,16 @@ from Services.ConteudoServices import ConteudoServices
 
 # Carregar Catálogo:
 service = ConteudoServices()
-service.carregar_csv("conteudo.csv")
+service.carregar_csv("lancamentos.csv")
+service.salvar_no_banco()
 
+'''
+print(service.musicas)
+print(service.podcasts)
+print(service.audiolivros)
+print(service.sons_ambiente)
+print(service.erros)
+'''
 
 print('\nBem-vindo!')
 

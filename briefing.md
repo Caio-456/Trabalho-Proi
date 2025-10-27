@@ -38,24 +38,13 @@ em exports gerais. Senhas são guardadas com hash e qualquer dado sensível deve
 
 # Versão só com o que não está pronto:
 
-d. Recebo semanalmente arquivos CSV com novos lançamentos das gravadoras e preciso atualizar o banco de dados automaticamente. 
 e. Dados como histórico de reprodução dos usuários e informações de pagamento dos artistas devem ser mantidos privados.
-
-* Deverá ter tratamento de erros;
-* Deverá está organizado em módulos;
-* Todos os atributos devem ser privados!!
-* Precisa de herança
-
 
 artistas de gravadoras, cujos catálogos chegam por ingestão de
 metadados e seguem regras contratuais de repasse; e podcasters, que podem monetizar por publicidade e patrocínio vinculados aos episódios. Em relatórios internos quero ver o 
 desempenho por criador (streams válidos, ouvintes únicos, retenção por faixa/episódio), mas os detalhes financeiros só podem ser acessados por perfis autorizados.
-O sistema deve recusar cadastros que não tragam os campos obrigatórios do seu tipo (por exemplo, música sem ISRC).
 
-Semanalmente recebo arquivos CSV de novas faixas e lançamentos de gravadoras parceiras, com colunas como content_type;title;artist_id;release_date;duration_sec;isrc_or_id;album;
-explicit;genre;rights_owner. Preciso importar esses arquivos, validar linha a linha e atualizar o banco: se o identificador (ISRC/ID) já existir, atualiza metadados; se for 
-novo, cria o registro; se vier algo inconsistente (ex.: música sem ISRC, data inválida), rejeita apenas a linha e gera relatório de erros sem travar a importação.
-Quando houver novas versões (remaster, deluxe), devem ser cadastradas como edições relacionadas, preservando o histórico.
+
 
 A privacidade é fundamental. Histórico de reprodução (o que cada usuário ouviu, quando e por quanto tempo) é pessoal e não pode aparecer em relatórios públicos; o usuário pode 
 ver o próprio histórico e estatísticas agregadas. Informações de pagamento dos artistas e detalhes de contratos são restritas a perfis financeiros e nunca aparecem em exports 
