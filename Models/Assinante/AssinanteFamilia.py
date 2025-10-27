@@ -1,16 +1,16 @@
-import Assinante
+from Models.Assinante.Assinante import Assinante
 
-class Familia(Assinante):
-    def __init__(self, perfis_conta = {}, faixa_anuncios = False, alta_qualidade = True, ouvir_offline = True):
-        super().__init__(
-            tipo = "Família",
-            preco = 40.90)
-        
-        self.__perfis_conta = perfis_conta
-        self.__faixa_anuncios = faixa_anuncios
-        self.__alta_qualidade = alta_qualidade
-        self.__ouvir_offline = ouvir_offline
+class AssinanteFamilia(Assinante):
+    def __init__(self, tipo):
+        self.__tipo = tipo
+        self.__perfis_conta = {}
+        self.__faixa_anuncios = False
+        self.__alta_qualidade = True
+        self.__ouvir_offline = True
 
+    @property
+    def tipo(self):
+        return self.__tipo
 
     def adicionar_perfil(self):
         if len(self.__perfis_conta) <= 5:

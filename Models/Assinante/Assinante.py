@@ -1,7 +1,10 @@
 class Assinante:
-    def __init__(self, tipo, preco):
+    def __init__(self, tipo):
         self.__tipo = tipo
-        self.__preco = preco
+    
+    @property
+    def tipo(self):
+        return self.__tipo
 
     def pular_musica(self):
         print("Pulando música...")
@@ -12,5 +15,5 @@ class Assinante:
     def trocar_qualidade(self):
         print('Qualidade trocada.')
 
-    def tocar_musica(self, usuario):
+    def tocar_musica(self, usuario = 'Não é plano família'):
         print('Tocando Música')

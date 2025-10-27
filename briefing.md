@@ -38,7 +38,6 @@ em exports gerais. Senhas são guardadas com hash e qualquer dado sensível deve
 
 # Versão só com o que não está pronto:
 
-b. Os artistas também são variados: independentes, de gravadoras e podcasters, cada categoria com formas diferentes de monetização. 
 d. Recebo semanalmente arquivos CSV com novos lançamentos das gravadoras e preciso atualizar o banco de dados automaticamente. 
 e. Dados como histórico de reprodução dos usuários e informações de pagamento dos artistas devem ser mantidos privados.
 

@@ -1,4 +1,4 @@
-import Conteudo
+from Models.Conteudo.Conteudo import Conteudo
 
 class Musica(Conteudo):
     def __init__(self, titulo, criador, data, genero, duracao, iscrMusica, album, numeroFaixa, selo, explicito):

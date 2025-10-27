@@ -4,6 +4,10 @@ import csv
 # Class
 # Lista musicas, podcasts, etc...
 
+class ConteudoServices:
+    def __init__(self):
+        pass
+
 # Colocar num try pois pode dar erro caso não encontre o arquivo.
 def carregar_csv():
     with open("nome.csv", "r", newline="", encoding = "utf-8") as csv:

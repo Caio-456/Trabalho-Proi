@@ -1,66 +1,112 @@
 # Integrantes: Alice Matos Ferreira, Caio Motta Barcelos, Davi Quinelato Falçoni e Eduarda Aleixo Felizardo.
 
-# from Services.instrucoes"Caminho" import "classe"
+# Imports:
+from Models.Conteudo.Conteudo import Conteudo
+from Models.Conteudo.Musica import Musica
+from Models.Conteudo.Podcast import Podcast
+from Models.Conteudo.AudioLivro import AudioLivro
+from Models.Conteudo.SomAmbiente import SomAmbiente
 
-def quem_esta_usando():
-    print('Selecione uma opção: ')
+from Models.Assinante.Assinante import Assinante
+from Models.Assinante.AssinanteFamilia import AssinanteFamilia
+from Models.Assinante.AssinanteGratuito import AssinanteGratuito
+from Models.Assinante.AssinantePremium import AssinantePremium
+
+from Models.Artista.Artista import Artista
+from Models.Artista.Gravadora import Gravadora
+from Models.Artista.Independente import Independente
+from Models.Artista.Podcaster import Podcaster
+
+from Services.ConteudoServices import ConteudoServices
+
+# Carregar Catálogo:
+service = ConteudoServices()
+service.carregar_csv("conteudo.csv")
+
+
+print('\nBem-vindo!')
+
+loop = True
+while loop:
+    print('\nComo quem você quer entrar? ')
     print(' ----------------')
-    print('| 1. Sou ouvinte |')
+    print('| 1. Sou Ouvinte |')
     print('| 2. Sou Artista |')
     print(' ----------------')
     ouvinte_ou_artista = input('Insira a opção: ')
-    if ouvinte_ou_artista not in ['1', '2']:
-        raise Exception('Opção Inválida.')
-    return ouvinte_ou_artista
+    if ouvinte_ou_artista in ['1', '2']:
+        loop = False
+    else: print('Opção inválida.')
 
-print('Bem-vindo!')
-try:
-    ouvinte_ou_artista = quem_esta_usando()
-except:
-    ouvinte_ou_artista = quem_esta_usando()
 
-print('\n Selecione uma opção: ')
-print(' ----------------')
-print('| 1. Login        |')
-print('| 2. Cadastro     |')
-print(' ----------------')
-login_ou_cadastro = input('Insira a opção: ')
-if login_ou_cadastro not in ['1', '2']:
-    raise Exception('Opção Inválida.')
+if ouvinte_ou_artista == '1':
+    loop = True
+    while loop:
+        print('\nSelecione o plano: ')
+        print(' -------------------')
+        print('| 1. Plano Gratuito |')
+        print('| 2. Plano Premium  |')
+        print('| 3. Plano Família  |')
+        print(' -------------------')
+        tipo_ouvinte = input('Insira a opção: ')
+        if tipo_ouvinte in ['1', '2', '3']:
+            loop = False
+            match tipo_ouvinte:
+                case '1':
+                    ouvinte = AssinanteGratuito(1)
+                case '2':
+                    ouvinte = AssinantePremium(2)
+                case '3':
+                    ouvinte = AssinanteFamilia(3)
+        else:
+            print('Opção inválida.')
+        print(ouvinte.tipo)
+else:
+    loop = True
+    while loop:
+        print('\nSelecione o tipo: ')
+        print(' -------------------------')
+        print('| 1. Artista Independente |')
+        print('| 2. Podcaster            |')
+        print('| 3. Gravadora            |')
+        print(' -------------------------')
+        tipo_artista = input('Insira a opção: ')
+        if tipo_artista in ['1', '2', '3']:
+            loop = False
+            match tipo_artista:
+                case '1':
+                    nome = input('Insira o nome: ')
+                    ouvinte = Independente(nome)
+                case '2':
+                    nome = input('Insira o nome: ')
+                    ouvinte = Podcaster(nome)
+                case '3':
+                    nome = input('Insira o nome: ')
+                    pais = input('Insira o país: ')
+                    ouvinte = Gravadora(nome, pais)
+        else:
+            print('Opção inválida.')
 
 '''
-if login_ou_cadastro == '1':
-    matchouvinte_ou_artista:
-        case '1':
-            print('\n Selecione uma opção: ')
-            print(' ----------------')
-            print('| 1. Login        |')
-            print('| 2. Cadastro     |')
-            print(' ----------------')
-        case '2':
-            print('\n Selecione uma opção: ')
-            print(' ----------------')
-            print('| 1. Login        |')
-            print('| 2. Cadastro     |')
-            print(' ----------------')
-        case _:
-            print('Opção Inválida.')
-elif login_ou_cadastro == '2':
-    match ouvinte_ou_artista:
-        case '1':
-            print('\n Selecione uma opção: ')
-            print(' ----------------')
-            print('| 1. Login        |')
-            print('| 2. Cadastro     |')
-            print(' ----------------')
-        case '2':
-            print('\n Selecione uma opção: ')
-            print(' ----------------')
-            print('| 1. Login        |')
-            print('| 2. Cadastro     |')
-            print(' ----------------')
-        case _:
-            print('Opção Inválida.')
-else:
-    'Opção Inválida'
-    '''
+def menu_ouvinte():
+    print('\nO que deseja fazer?')
+    print(' -------------------------------------------')
+    print('| 1. Abrir conteúdo                        |')
+    print('| 2. Pular faixa                           |')
+    print('| 3. Trocar qualidade                      |')
+    print('| 4. Download offline                      |')
+    print('| 5. Ver meu histórico                     |')
+    print('| 6. Sair                                  |')
+    print(' -------------------------------------------')
+    return input('Opção: ')
+
+def menu_artista():
+    print('\nO que deseja fazer?')
+    print(' -------------------------------------------')
+    print('| 1. Enviar novo conteúdo                  |')
+    print('| 2. Importar CSV de catálogo              |')
+    print('| 3. Ver desempenho por criador            |')
+    print('| 4. Ver dados financeiros (se autorizado) |')
+    print('| 5. Sair                                  |')
+    print(' -------------------------------------------')
+'''

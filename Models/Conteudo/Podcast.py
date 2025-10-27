@@ -1,4 +1,5 @@
-import Conteudo
+from Models.Conteudo.Conteudo import Conteudo
+
 
 class Podcast(Conteudo):
     def __init__ (self, titulo, criador, data, genero, duracao, temporada, episodio, RSS, capitulos):

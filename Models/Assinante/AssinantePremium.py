@@ -1,11 +1,12 @@
-import Assinante
+from Models.Assinante.Assinante import Assinante
 
-class Premium(Assinante):
-    def __init__(self, faixa_anuncios = False, alta_qualidade = True, ouvir_offline = True):
-        super().__init__(
-            tipo = "Premium",
-            preco = 23.90) 
-            
-        self.__faixa_anuncios = faixa_anuncios
-        self.__alta_qualidade = alta_qualidade
-        self.__ouvir_offline = ouvir_offline
+class AssinantePremium(Assinante):
+    def __init__(self, tipo):
+        self.__tipo = tipo
+        self.__faixa_anuncios = False
+        self.__alta_qualidade = True
+        self.__ouvir_offline = True
+
+    @property
+    def tipo(self):
+        return self.__tipo

@@ -1,4 +1,4 @@
-import Conteudo
+from Models.Conteudo.Conteudo import Conteudo
 
 class AudioLivro(Conteudo):
     def __init__ (self, titulo, criador, data, genero, duracao, narrador, editora, capitulo):
