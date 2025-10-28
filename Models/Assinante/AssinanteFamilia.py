@@ -16,12 +16,14 @@ class AssinanteFamilia(Assinante):
     @property
     def historico(self):
         return self.__historico
+    
+    @property
+    def perfis_conta(self):
+        return self.__perfis_conta
 
-    def adicionar_perfil(self):
-        if len(self.__perfis_conta) <= 5:
-            print("Adicionando perfil ao plano...")
-        else:
-            print("Não é possível adicionar mais perfis a este plano.")
+    def adicionar_perfil(self, usuario, idade):
+        self.__perfis_conta[usuario] = idade
+        print('Perfil adicionado.')
 
     def baixar_musica(self, musica, usuario):
         if self.__perfis_conta[usuario] < 18:
