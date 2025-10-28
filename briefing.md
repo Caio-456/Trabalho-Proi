@@ -1,15 +1,3 @@
-Descrição: Desenvolvo uma plataforma de música digital e estou lutando contra a complexidade dos usuários e conteúdos. 
-a. Tenho diferentes tipos de assinantes: gratuitos, premium e família, cada um com limitações e benefícios específicos. 
-b. Os artistas também são variados: independentes, de gravadoras e podcasters, cada categoria com formas diferentes de monetização. 
-c. Meu catálogo inclui músicas, podcasts, audiolivros e sons ambientes, todos exigindo metadados específicos. 
-d. Recebo semanalmente arquivos CSV com novos lançamentos das gravadoras e preciso atualizar o banco de dados automaticamente. 
-e. Dados como histórico de reprodução dos usuários e informações de pagamento dos artistas devem ser mantidos privados.
-
-* Mostrar a solução funcionando.
-* Deverá ter tratamento de erros;
-* Deverá está organizado em módulos;
-* Precisa de herança;
-
 # Plataforma de Streaming de Música
 
 “Desenvolvo uma plataforma de música digital e estou lutando com a complexidade dos usuários e dos conteúdos. Tenho três tipos de assinantes e cada um precisa ser tratado de forma 
@@ -36,16 +24,6 @@ o usuário pode ver o próprio histórico e estatísticas agregadas. Informaçõ
 em exports gerais. Senhas são guardadas com hash e qualquer dado sensível deve ser exposto apenas por métodos controlados.
 
 
-# Versão só com o que não está pronto:
-
-e. Dados como histórico de reprodução dos usuários e informações de pagamento dos artistas devem ser mantidos privados.
-
-artistas de gravadoras, cujos catálogos chegam por ingestão de
-metadados e seguem regras contratuais de repasse; e podcasters, que podem monetizar por publicidade e patrocínio vinculados aos episódios. Em relatórios internos quero ver o 
-desempenho por criador (streams válidos, ouvintes únicos, retenção por faixa/episódio), mas os detalhes financeiros só podem ser acessados por perfis autorizados.
-
-
-
-A privacidade é fundamental. Histórico de reprodução (o que cada usuário ouviu, quando e por quanto tempo) é pessoal e não pode aparecer em relatórios públicos; o usuário pode 
-ver o próprio histórico e estatísticas agregadas. Informações de pagamento dos artistas e detalhes de contratos são restritas a perfis financeiros e nunca aparecem em exports 
-gerais. Senhas são guardadas com hash e qualquer dado sensível deve ser exposto apenas por métodos controlados.
+# TO-DO:
+* Incrementar play no ConteudoServices.
+* Cadastro do plano família com controle parental.

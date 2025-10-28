@@ -13,10 +13,12 @@ from Models.Artista.Podcaster import Podcaster
 
 from Services.ConteudoServices import ConteudoServices
 
+
 # Carregar Catálogo:
 service = ConteudoServices()
 service.carregar_csv("lancamentos.csv")
 service.salvar_no_banco()
+service.adicionarPlays()
 
 print('\nBem-vindo!')
 
@@ -69,14 +71,14 @@ else:
             match tipo_artista:
                 case '1':
                     nome = input('Insira o nome: ')
-                    ouvinte = Independente(nome)
+                    artista = Independente(nome)
                 case '2':
                     nome = input('Insira o nome: ')
-                    ouvinte = Podcaster(nome)
+                    artista = Podcaster(nome)
                 case '3':
                     nome = input('Insira o nome: ')
                     pais = input('Insira o país: ')
-                    ouvinte = Gravadora(nome, pais)
+                    artista = Gravadora(nome, pais)
         else:
             print('Opção inválida.')
 
@@ -107,52 +109,71 @@ if ouvinte_ou_artista == '1':
                     index = 0
                     match opcaoTipo:
                         case '1':
+                            service.carregar_do_banco()
                             print('Músicas: ')
                             for item in service.musicas:
                                 index += 1
                                 print(index, '-', item.titulo)
-                            qualTocar = int(input('Qual tocar? '))
                             try:
-                                print(f'Tocando "{service.musicas[qualTocar - 1].titulo}..."')
-                                ouvinte.adicionar_historico(service.musicas[qualTocar - 1].titulo)
+                                qualTocar = int(input('Qual tocar? '))
                             except:
                                 print('Opção Inválida.')
+                            else:
+                                try:
+                                    print(f'Tocando "{service.musicas[qualTocar - 1].titulo}..."')
+                                    ouvinte.adicionar_historico(service.musicas[qualTocar - 1].titulo)
+                                except:
+                                    print('Opção Inválida.')
                         case '2':
+                            service.carregar_do_banco()
                             print('Podcasts: ')
                             for item in service.podcasts:
                                 index += 1
                                 print(index, '-', item.titulo)
-                            qualTocar = int(input('Qual tocar? '))
                             try:
-                                print(f'Tocando "{service.podcasts[qualTocar - 1].titulo}..."')
-                                ouvinte.adicionar_historico(service.podcasts[qualTocar - 1].titulo)
+                                qualTocar = int(input('Qual tocar? '))
                             except:
-                                print('Opção Inválida.')
+                                print('Opção Inválida')
+                            else:
+                                try:
+                                    print(f'Tocando "{service.podcasts[qualTocar - 1].titulo}..."')
+                                    ouvinte.adicionar_historico(service.podcasts[qualTocar - 1].titulo)
+                                except:
+                                    print('Opção Inválida.')
                         case '3':
+                            service.carregar_do_banco()
                             print('Audiolivros: ')
                             for item in service.audiolivros:
                                 index += 1
                                 print(index, '-', item.titulo)
-                            qualTocar = int(input('Qual tocar? '))
                             try:
-                                print(f'Tocando "{service.audiolivros[qualTocar - 1].titulo}..."')
-                                ouvinte.adicionar_historico(service.audiolivros[qualTocar - 1].titulo)
+                                qualTocar = int(input('Qual tocar? '))
                             except:
-                                print('Opção Inválida.')
+                                print('Opção Inválida')
+                            else:
+                                try:
+                                    print(f'Tocando "{service.audiolivros[qualTocar - 1].titulo}..."')
+                                    ouvinte.adicionar_historico(service.audiolivros[qualTocar - 1].titulo)
+                                except:
+                                    print('Opção Inválida.')
                         case '4':
+                            service.carregar_do_banco()
                             print('Sons ambiente: ')
                             for item in service.sons_ambiente:
                                 index += 1
                                 print(index, '-', item.titulo)
-                            qualTocar = int(input('Qual tocar? '))
                             try:
-                                print(f'Tocando "{service.sons_ambiente[qualTocar - 1].titulo}..."')
-                                ouvinte.adicionar_historico(service.sons_ambiente[qualTocar - 1].titulo)
+                                qualTocar = int(input('Qual tocar? '))
                             except:
                                 print('Opção Inválida')
+                            else:
+                                try:
+                                    print(f'Tocando "{service.sons_ambiente[qualTocar - 1].titulo}..."')
+                                    ouvinte.adicionar_historico(service.sons_ambiente[qualTocar - 1].titulo)
+                                except:
+                                    print('Opção Inválida')
                         case _:
                             print('Opção Inválida')
-                            break
                 case '2':
                     ouvinte.pular_musica()
                 case '3':
@@ -174,7 +195,7 @@ else:
         print(' -------------------------------------------')
         print('| 1. Enviar novo conteúdo                  |')
         print('| 2. Ver desempenho por criador            |')
-        print('| 3. Ver dados financeiros                 |')
+        print('| 3. Ver saldo                             |')
         print('| 4. Sair                                  |')
         print(' -------------------------------------------')
         opcao = input('Opção: ')
@@ -182,11 +203,13 @@ else:
             loop = False
             match opcao:
                 case '1':
-                    pass
+                    service.cadastrar_conteudo(artista)
+                    service.carregar_do_banco()
                 case '2':
-                    pass
+                    print("\nDesempenho do criador")
+                    artista.relatorio_desempenho()
                 case '3':
-                    pass
+                    print(f"Saldo atual: R${artista.saldo:.2f}")
                 case '4':
                     loop = False
         else:

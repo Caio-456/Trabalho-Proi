@@ -114,6 +114,140 @@ class ConteudoServices:
             cur.close()
             con.close()
 
+    def cadastrar_conteudo(self, artista):
+        con = sqlite3.connect("streaming.db")
+        cur = con.cursor()
+
+        print('\nQual tipo de conteúdo deseja enviar?')
+        print(' -----------------')
+        print('| 1. Música       |')
+        print('| 2. Podcast      |')
+        print('| 3. Audiolivro   |')
+        print('| 4. Som Ambiente |')
+        print(' -----------------')
+        tipo = input('Opção: ')
+
+        match tipo:
+            case '1':
+                titulo = input("Título: ")
+                data = input("Data de lançamento (AAAA-MM-DD): ")
+                dur = int(input("Duração (segundos): "))
+                genero = input("Gênero: ")
+                isrc = input("ISRC: ")
+                album = input("Álbum: ")
+                faixa = int(input("Faixa nº: "))
+                selo = input("Selo: ")
+                explicito = input("Conteúdo explícito? (S/N): ")
+                m = Musica(titulo, artista.nome, data, dur, genero, isrc, album, faixa, selo, explicito)
+                ConteudoDB.insert_musica(cur, m)
+                con.commit()
+                print(f'Música "{titulo}" enviada!')
+
+            case '2':
+                titulo = input("Título: ")
+                data = input("Data de lançamento: ")
+                dur = int(input("Duração (segundos): "))
+                genero = input("Categoria: ")
+                rss = input("Link RSS: ")
+                season = int(input("Temporada: "))
+                episode = int(input("Episódio: "))
+                isrc = input("ISRC (opcional): ")
+                p = Podcast(titulo, artista.nome, data, dur, genero, season, episode, rss, isrc)
+                ConteudoDB.insert_podcast(cur, p)
+                con.commit()
+                print(f'Podcast "{titulo}" enviado!')
+
+            case '3':
+                titulo = input("Título: ")
+                data = input("Data de lançamento: ")
+                dur = int(input("Duração (segundos): "))
+                genero = input("Gênero: ")
+                narrador = input("Narrador: ")
+                editora = input("Editora: ")
+                capitulos = int(input("Quantidade de capítulos: "))
+                a = AudioLivro(titulo, artista.nome, data, dur, genero, narrador, editora, capitulos)
+                ConteudoDB.insert_audiolivro(cur, a)
+                con.commit()
+                print(f'Audiolivro "{titulo}" enviado!')
+
+            case '4':
+                titulo = input("Título: ")
+                data = input("Data de lançamento: ")
+                dur = int(input("Duração (segundos): "))
+                genero = input("Gênero: ")
+                loopable = input("Loop infinito? (S/N): ")
+                ruido = input("Tipo de ruído: ")
+                s = SomAmbiente(titulo, artista.nome, data, dur, genero, loopable, ruido)
+                ConteudoDB.insert_som(cur, s)
+                con.commit()
+                print(f'Som ambiente "{titulo}" enviado!')
+
+            case _:
+                print("Opção inválida.")
+
+    def carregar_do_banco(self): # Recarrega as listas de conteudo
+        con = sqlite3.connect("streaming.db")
+        cur = con.cursor()
+
+        # Limpar listas atuais
+        self.__musicas.clear()
+        self.__podcasts.clear()
+        self.__audiolivros.clear()
+        self.__sons_ambiente.clear()
+
+        # Carregar músicas
+        cur.execute("SELECT titulo, artista, data_lancamento, duracao, genero, isrc, album, faixa, selo, explicito FROM musica")
+        for row in cur.fetchall():
+            m = Musica(*row)
+            self.__musicas.append(m)
+
+        # Carregar podcasts
+        cur.execute("SELECT titulo, artista, data_lancamento, duracao, genero, season, episode, rss_feed, isrc FROM podcast")
+        for row in cur.fetchall():
+            p = Podcast(*row)
+            self.__podcasts.append(p)
+
+        # Carregar audiolivros
+        cur.execute("SELECT titulo, artista, data_lancamento, duracao, genero, narrador, editora, capitulos FROM audiolivro")
+        for row in cur.fetchall():
+            a = AudioLivro(*row)
+            self.__audiolivros.append(a)
+
+        # Carregar som ambiente
+        cur.execute("SELECT titulo, artista, data_lancamento, duracao, genero, loopable, faixaRuido FROM som_ambiente")
+        for row in cur.fetchall():
+            s = SomAmbiente(*row)
+            self.__sons_ambiente.append(s)
+
+        con.close()
+
+    def adicionarPlays(self):
+        try:
+            con = sqlite3.connect("streaming.db")
+            cur = con.cursor()
+
+            cur.execute(f"""
+                ALTER TABLE musica ADD COLUMN plays INTEGER DEFAULT 0;
+            """)
+
+            cur.execute(f"""
+                ALTER TABLE podcast ADD COLUMN plays INTEGER DEFAULT 0;
+            """)
+
+            cur.execute(f"""
+                ALTER TABLE audiolivro ADD COLUMN plays INTEGER DEFAULT 0;
+            """)
+
+            cur.execute(f"""
+                ALTER TABLE som_ambiente ADD COLUMN plays INTEGER DEFAULT 0;
+            """)
+
+            con.commit()
+            con.close()
+        except Exception as e:
+            print("Erro ao adicionar plays:", e)
+
+
 
 class ConteudoDB:
     def create_tables(cur):
