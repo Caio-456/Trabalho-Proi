@@ -18,14 +18,6 @@ service = ConteudoServices()
 service.carregar_csv("lancamentos.csv")
 service.salvar_no_banco()
 
-'''
-print(service.musicas)
-print(service.podcasts)
-print(service.audiolivros)
-print(service.sons_ambiente)
-print(service.erros)
-'''
-
 print('\nBem-vindo!')
 
 loop = True
@@ -62,7 +54,6 @@ if ouvinte_ou_artista == '1':
                     ouvinte = AssinanteFamilia(3)
         else:
             print('Opção inválida.')
-        print(ouvinte.tipo)
 else:
     loop = True
     while loop:
@@ -89,26 +80,114 @@ else:
         else:
             print('Opção inválida.')
 
-'''
-def menu_ouvinte():
-    print('\nO que deseja fazer?')
-    print(' -------------------------------------------')
-    print('| 1. Abrir conteúdo                        |')
-    print('| 2. Pular faixa                           |')
-    print('| 3. Trocar qualidade                      |')
-    print('| 4. Download offline                      |')
-    print('| 5. Ver meu histórico                     |')
-    print('| 6. Sair                                  |')
-    print(' -------------------------------------------')
-    return input('Opção: ')
-
-def menu_artista():
-    print('\nO que deseja fazer?')
-    print(' -------------------------------------------')
-    print('| 1. Enviar novo conteúdo                  |')
-    print('| 2. Importar CSV de catálogo              |')
-    print('| 3. Ver desempenho por criador            |')
-    print('| 4. Ver dados financeiros (se autorizado) |')
-    print('| 5. Sair                                  |')
-    print(' -------------------------------------------')
-'''
+if ouvinte_ou_artista == '1':
+    loop = True
+    while loop:
+        print('\nO que deseja fazer?')
+        print(' ----------------------')
+        print('| 1. Tocar conteúdo    |')
+        print('| 2. Pular faixa       |')
+        print('| 3. Trocar qualidade  |')
+        print('| 4. Download          |')
+        print('| 5. Ver meu histórico |')
+        print('| 6. Sair              |')
+        print(' ----------------------')
+        opcao = input('Opção: ')
+        if opcao in ['1', '2', '3', '4', '5', '6']:
+            match opcao:
+                case '1':
+                    print('\nQual tipo de conteúdo?')
+                    print(' -----------------')
+                    print('| 1. Música       |')
+                    print('| 2. Podcast      |')
+                    print('| 3. Audiolivro   |')
+                    print('| 4. Som Ambiente |')
+                    print(' -----------------')
+                    opcaoTipo = input('Opção: ')
+                    index = 0
+                    match opcaoTipo:
+                        case '1':
+                            print('Músicas: ')
+                            for item in service.musicas:
+                                index += 1
+                                print(index, '-', item.titulo)
+                            qualTocar = int(input('Qual tocar? '))
+                            try:
+                                print(f'Tocando "{service.musicas[qualTocar - 1].titulo}..."')
+                                ouvinte.adicionar_historico(service.musicas[qualTocar - 1].titulo)
+                            except:
+                                print('Opção Inválida.')
+                        case '2':
+                            print('Podcasts: ')
+                            for item in service.podcasts:
+                                index += 1
+                                print(index, '-', item.titulo)
+                            qualTocar = int(input('Qual tocar? '))
+                            try:
+                                print(f'Tocando "{service.podcasts[qualTocar - 1].titulo}..."')
+                                ouvinte.adicionar_historico(service.podcasts[qualTocar - 1].titulo)
+                            except:
+                                print('Opção Inválida.')
+                        case '3':
+                            print('Audiolivros: ')
+                            for item in service.audiolivros:
+                                index += 1
+                                print(index, '-', item.titulo)
+                            qualTocar = int(input('Qual tocar? '))
+                            try:
+                                print(f'Tocando "{service.audiolivros[qualTocar - 1].titulo}..."')
+                                ouvinte.adicionar_historico(service.audiolivros[qualTocar - 1].titulo)
+                            except:
+                                print('Opção Inválida.')
+                        case '4':
+                            print('Sons ambiente: ')
+                            for item in service.sons_ambiente:
+                                index += 1
+                                print(index, '-', item.titulo)
+                            qualTocar = int(input('Qual tocar? '))
+                            try:
+                                print(f'Tocando "{service.sons_ambiente[qualTocar - 1].titulo}..."')
+                                ouvinte.adicionar_historico(service.sons_ambiente[qualTocar - 1].titulo)
+                            except:
+                                print('Opção Inválida')
+                        case _:
+                            print('Opção Inválida')
+                            break
+                case '2':
+                    ouvinte.pular_musica()
+                case '3':
+                    ouvinte.trocar_qualidade()
+                case '4':
+                    ouvinte.baixar_musica()
+                case '5':
+                    print('Histórico: ')
+                    for item in ouvinte.historico:
+                        print('•', item)
+                case '6':
+                    loop = False
+        else:
+            print('Opção inválida.')
+else:
+    loop = True
+    while loop:
+        print('\nO que deseja fazer?')
+        print(' -------------------------------------------')
+        print('| 1. Enviar novo conteúdo                  |')
+        print('| 2. Ver desempenho por criador            |')
+        print('| 3. Ver dados financeiros                 |')
+        print('| 4. Sair                                  |')
+        print(' -------------------------------------------')
+        opcao = input('Opção: ')
+        if opcao in ['1', '2', '3','4','5']:
+            loop = False
+            match opcao:
+                case '1':
+                    pass
+                case '2':
+                    pass
+                case '3':
+                    pass
+                case '4':
+                    loop = False
+        else:
+            print('Opção inválida.')

@@ -3,6 +3,7 @@ from Models.Assinante.Assinante import Assinante
 class AssinanteGratuito(Assinante):
     def __init__(self, tipo):
         self.__tipo = tipo
+        self.__historico = []
         self.__faixa_anuncios = True
         self.__limite_pulos = 5
         self.__alta_qualidade = False
@@ -11,11 +12,20 @@ class AssinanteGratuito(Assinante):
     @property
     def tipo(self):
         return self.__tipo
-
+    
+    @property
+    def limite_pulos(self):
+        return self.__limite_pulos
+    
+    @property
+    def historico(self):
+        return self.__historico
+    
     def pular_musica(self):
-        if limite_pulos <= 8:
+        if self.__limite_pulos >= 0:
             print("Pulando música...")
-            limite_pulos -= 1
+            self.__limite_pulos -= 1
+            print('Pulos restantes: ', self.__limite_pulos)
         else:
             print("Pulos esgotados.")
 

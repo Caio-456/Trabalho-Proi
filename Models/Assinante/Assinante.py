@@ -5,6 +5,9 @@ class Assinante:
     @property
     def tipo(self):
         return self.__tipo
+    
+    def adicionar_historico(self, conteudo):
+        self.historico.append(conteudo)
 
     def pular_musica(self):
         print("Pulando música...")

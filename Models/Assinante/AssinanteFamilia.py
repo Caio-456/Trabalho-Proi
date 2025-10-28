@@ -4,6 +4,7 @@ class AssinanteFamilia(Assinante):
     def __init__(self, tipo):
         self.__tipo = tipo
         self.__perfis_conta = {}
+        self.__historico = []
         self.__faixa_anuncios = False
         self.__alta_qualidade = True
         self.__ouvir_offline = True
@@ -11,6 +12,10 @@ class AssinanteFamilia(Assinante):
     @property
     def tipo(self):
         return self.__tipo
+    
+    @property
+    def historico(self):
+        return self.__historico
 
     def adicionar_perfil(self):
         if len(self.__perfis_conta) <= 5:
